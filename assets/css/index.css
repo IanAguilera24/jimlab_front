@@ -18,12 +18,14 @@ page format
 
 html{
     overflow-x: hidden;
+    font-size: calc(10px + 0.3vw);
 }
 
 body{
     min-height: 100vh;
     justify-content: center;
     align-items: center;
+    background-color: rgba(141, 198, 64, 0.2);
 }
 
 /*
@@ -50,8 +52,8 @@ header.down{
 
 header .brand{
     color: #fff;
-    font-size: 30px;
-    font-weight: 700;
+    font-size: clamp(16px, 1vw, 20px);
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
@@ -91,11 +93,11 @@ header .menu ul li{
 }
 
 header .menu a {
+    font-size: clamp(12px, 1.5vw, 15px);
     display: inline-block; 
     color: #fff;
     font-weight: 600;
     text-transform: uppercase;
-    font-size: 16px;
     text-shadow: 
         0 0 4px #000, 
         0 0 4px #000, 
@@ -111,9 +113,9 @@ header .menu a:hover {
     background: #8DC640;
     transform: scale(1.15); 
     text-shadow: 
-        0 0 4px #fff, 
-        0 0 4px #fff,
-        0 0 4px #fff;
+        0 0 1px #fff, 
+        0 0 1px #fff,
+        0 0 1px #fff;
 }
 
 header.scroll .menu a {
@@ -200,7 +202,7 @@ Main section
     color: #fff;
     font-weight: 600;
     text-transform: uppercase;
-    font-size: 1rem;
+    font-size: 1.1rem;
     text-shadow: 
         0 0 3px #000, 
         0 0 3px #000, 
@@ -263,15 +265,6 @@ Main section
     62% { transform: translateX(-25%); } /* Pause */
     74% { transform: translateX(-50%); } /* third image */
     100% { transform: translateX(-50%); } /* Pause */
-}
-
-/*
-transition section
-*/
-
-.transition-spacer {
-    height: 10px;
-    background: #fff;
 }
 
 /*
@@ -487,7 +480,7 @@ Section-four
 
 .section-four .container-mis-vis-val .product-container-mis-vis-val {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);grid-template-rows: auto auto;
     grid-template-areas: 
         "mision mision" 
         "vision valores"; 
@@ -565,7 +558,7 @@ Section-four
 }
 
 .section-four .container-mis-vis-val .product-container-mis-vis-val .product-mis-vis-val .about {
-    font-size: 0.9rem;
+    font-size: 1.3rem;
     font-weight: bold;
     padding-left: 10%;
     padding-right: 10%;
@@ -628,12 +621,11 @@ Section five
 .section-five {
     text-align: center;
     padding: 4rem 2rem;
-    background: #fff;
     padding-left: 25%;
     padding-right: 25%;
 }
 
-.section-five h3 {
+.section-five h3 strong{
     font-size: 3rem;
     font-weight: bold;
     text-transform: uppercase;
@@ -916,15 +908,84 @@ Section six
 }
 
 /*
-Section seven
+Secion seven
 */
 
 .section-seven {
-    padding-top: 3%;
-    padding-bottom: 3%;
-    padding-left: 10%;
-    padding-right: 10%;
-    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px;
+    overflow: hidden; 
+    text-align: center;
+}
+
+.section-seven strong{
+    font-size: 4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    color: #444;
+}
+
+.carousel-wrapper-seven {
+    display: flex;
+    flex-direction: column; 
+    gap: 20px; 
+}
+
+.carousel-section-seven {
+    display: flex;
+    gap: 20px; 
+    animation: scroll 10s linear infinite; 
+    white-space: nowrap;
+}
+
+.carousel-section-seven.reverse {
+    animation-direction: reverse; 
+}
+
+.carousel-section-seven img {
+    width: 230px; 
+    height: auto;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+    background: transparent;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-132.5%)
+    }
+}
+
+/*
+Section eight
+*/
+
+.section-eight {
+    text-align: justify;
+    position: relative; 
+    background: url('/assets/resources/img/fondo-sectionfour.jpg') no-repeat center center;
+    background-size: cover; 
+    background-attachment: fixed; 
+    z-index: 1;
+    overflow: hidden; 
+    padding-left: 4%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.section-eight::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2); 
+    z-index: -1; 
 }
 
 .contact-container {
@@ -935,7 +996,8 @@ Section seven
     align-items: stretch;
 }
 
-.contact-seven {
+.contact-eight {
+    background: rgba(255, 255, 255, 1.0);
     grid-column: 1 / 2; 
     grid-row: 1 / 2;
     padding: 2%;
@@ -943,25 +1005,25 @@ Section seven
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.contact-seven h2 {
+.contact-eight h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
     color: #444;
     text-transform: uppercase;
 }
 
-.contact-seven strong {
+.contact-eight strong {
     text-transform: uppercase;
 }
 
-.contact-seven p {
+.contact-eight p {
     text-transform: uppercase;
     font-size: 1.2rem;
     color: #444;
     padding-bottom: 1%;
 }
 
-.contact-seven a {
+.contact-eight a {
     color: #8DC640;
     text-decoration: none;
     font-weight: bold;
@@ -974,17 +1036,17 @@ Section seven
     transition: transform 0.3s ease-in-out;
 }
 
-.contact-seven a:hover {
+.contact-eight a:hover {
     transform: scale(1.05);
 }
 
-.seven-social-icons {
+.eight-social-icons {
     display: flex;
     gap: 1rem;
     margin-top: 1rem;
 }
 
-.seven-social-icons img {
+.eight-social-icons img {
     width: 30px;
     height: 30px;
     filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.5))
@@ -992,41 +1054,41 @@ Section seven
     transition: transform 0.3s ease-in-out;
 }
 
-.seven-social-icons img:hover {
+.eight-social-icons img:hover {
     transform: scale(1.2);
 }
 
 iframe {
-    grid-column: 1 / 2; /* En la primera columna, debajo de "Contáctanos" */
+    grid-column: 1 / 2; 
     grid-row: 2 / 3;
-    width: 100%; /* Ocupa todo el ancho de la columna */
-    height: 500px; /* Establece una altura mínima */
-    border-radius: 20px; /* Opcional: bordes redondeados */
+    width: 100%; 
+    height: 500px; 
+    border-radius: 20px; 
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.contact-form-seven {
-    grid-column: 2 / 3; /* Segunda columna */
+.contact-form-eight {
+    grid-column: 2 / 3;
     grid-row: 1 / 3;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Distribuye el contenido verticalmente */
+    justify-content: space-between;
     padding: 2%;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 1.0);
     border-radius: 20px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.contact-form-seven label {
+.contact-form-eight label {
     font-size: 1.2rem;
     display: block;
     margin: 1rem 0 0.5rem;
     text-transform: uppercase;
 }
 
-.contact-form-seven input,
-.contact-form-seven textarea,
-.contact-form-seven select {
+.contact-form-eight input,
+.contact-form-eight textarea,
+.contact-form-eight select {
     width: 100%;
     padding: 0.8rem;
     border: 1px solid #ccc;
@@ -1041,7 +1103,7 @@ iframe {
     align-items: center;
 }
 
-.contact-form-seven button {
+.contact-form-eight button {
     background-color: #8DC640;
     color: white;
     padding: 0.8rem 2rem;
@@ -1058,12 +1120,12 @@ iframe {
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-.contact-form-seven button:hover {
+.contact-form-eight button:hover {
     background-color: #76b437;
     transform: scale(1.05);
 }
 
-.contact-form-seven textarea {
+.contact-form-eight textarea {
     resize: none; 
     height: 220px;
 }
@@ -1131,8 +1193,8 @@ Contenido del Footer
 /*Contactanos*/
 .footer-contact {
     display: flex;
-    flex-direction: column; /* Disposición vertical */
-    gap: 15px; /* Espaciado entre los elementos */
+    flex-direction: column;
+    gap: 15px; 
 }
 
 .footer-contact h3 {
@@ -1143,14 +1205,14 @@ Contenido del Footer
 
 .footer-contact .contact-item {
     display: flex;
-    align-items: center; /* Alinea ícono y texto verticalmente */
-    gap: 10px; /* Espacio entre ícono y texto */
+    align-items: center; 
+    gap: 10px;
 }
 
 .footer-contact .contact-item img {
-    width: 30px; /* Tamaño del ícono */
-    height: auto; /* Mantiene la proporción */
-    flex-shrink: 0; /* Evita que el ícono se reduzca */
+    width: 30px;
+    height: auto; 
+    flex-shrink: 0; 
 }
 
 .footer-contact .contact-item span {
@@ -1223,6 +1285,12 @@ Contenido del Footer
 Modificacion en funcion del dispositivo
 */
 
+@media (min-width: 1920px) and (max-height: 1080px) {
+    html {
+        font-size: 10px; 
+    }
+}
+
 @media (max-width: 1500px) {
     .section-main {
         height: 65vh;
@@ -1293,8 +1361,8 @@ Modificacion en funcion del dispositivo
 }
 
 @media (max-width: 991px) {
-    .section-main {
-        height: 45vh; /* Reduce aún más la altura */
+    .section-main{
+        height: 50vh;
     }
     .main-text h1 {
         font-size: 2.8rem;
@@ -1362,9 +1430,31 @@ Modificacion en funcion del dispositivo
     }
 }
 
+@media (min-width: 300px) and (max-width: 768px) {
+    html {
+        font-size: calc(8px + 0.3vw); 
+    }
+}
+
+@media (max-width: 850px){
+    .section-main{
+        height: 45vh;
+    }
+}
+
 @media (max-width: 768px) {
-    .section-main {
-        height: 35vh; /* Más compacto */
+    header {
+        padding: 15px 40px; 
+    }
+    header .brand {
+        font-size: clamp(8px, 1.5vw, 14px);
+    }
+    header .menu a {
+        font-size: 12px; 
+        margin: 0 15px; 
+    }
+    .section-main{
+        height: 40vh;
     }
     .main-text h1 {
         font-size: 2.2rem;
@@ -1384,6 +1474,14 @@ Modificacion en funcion del dispositivo
     }
     .section-three h4 {
         font-size: 2rem;
+    }
+    .section-four .container-mis-vis-val .product-container-mis-vis-val {
+        grid-template-columns: 1fr; 
+        grid-template-rows: auto auto auto; 
+        grid-template-areas: 
+            "mision" 
+            "vision" 
+            "valores"; 
     }
     .section-six .row-container {
         flex-direction: column;
@@ -1431,11 +1529,11 @@ Modificacion en funcion del dispositivo
         height: 4rem;
     }
     .contact-container {
-        grid-template-columns: 1fr; /* Una sola columna */
-        grid-template-rows: auto auto auto; /* Tres filas: contact-seven, iframe, formulario */
+        grid-template-columns: 1fr; 
+        grid-template-rows: auto auto auto; 
         gap: 2rem;
     }
-    .contact-seven {
+    .contact-eight {
         grid-column: auto;
         grid-row: auto;
     }
@@ -1444,20 +1542,22 @@ Modificacion en funcion del dispositivo
         grid-row: auto;
         height: 250px; /* Reduce la altura para pantallas pequeñas */
     }
-    .contact-form-seven {
+    .contact-form-eight {
         grid-column: auto;
         grid-row: auto;
         height: auto; /* Ajusta automáticamente su altura */
     }
-    .contact-form-seven textarea { 
+    .contact-form-eight textarea { 
         height: auto;
     }
 }
 
 @media (max-width: 600px) {
-    .section-main h1 {
-        font-size: 40px;
-        line-height: 40px;
+    .section-main{
+        height: 35vh;
+    }
+    .main-text h1 {
+        font-size: 1.8rem;
     }
     .section-main p {
         font-size: 15px;
@@ -1475,36 +1575,20 @@ Modificacion en funcion del dispositivo
     .footer-social .social-icons img {
         width: 30px;
     }
-    .section-main {
-        height: 28vh;
-    }
 }
 
 @media (max-width: 450px) {
-    html {
-        font-size: 50%;
-    }
-    .section-main {
-        height: 20vh; /* Muy compacto */
+    .section-main{
+        height: 30vh;
     }
     .main-text h1 {
-        font-size: 1.8rem;
+        font-size: 1rem;
     }
     .main-text p {
         font-size: 1rem;
     }
     .main-text .section-main-btn a {
-        font-size: 0.9rem;
         padding: 4px 8px;
-    }
-    .section-three h3 {
-        font-size: 2rem;
-    }
-    .section-three p {
-        font-size: 1.2rem;
-    }
-    .section-three h4 {
-        font-size: 1.8rem;
     }
     .section-six .product-container-six .product-six {
         flex: 1 1 calc(100% - 1rem);
@@ -1530,52 +1614,5 @@ Modificacion en funcion del dispositivo
     }
     .footer-container .box h3 {
         font-size: 12px;
-    }
-}
-
-@media (max-width: 300px) {
-    html {
-        font-size: 40%; /* Ajustar el tamaño base de fuente */
-    }
-    .section-main {
-        height: 20vh; /* Más compacto */
-    }
-    .main-text h1 {
-        font-size: 0.3rem; /* Texto aún más pequeño */
-        line-height: 1.1;
-    }
-    .main-text p {
-        font-size: 01.0rem;
-        line-height: 1.2;
-    }
-    .main-text .section-main-btn a {
-        font-size: 0.8rem;
-        padding: 3px 6px; /* Botones más pequeños */
-    }
-    .footer-container {
-        grid-gap: 8px; /* Menor espacio entre elementos */
-    }
-    .footer-newsletter form input, .footer-newsletter form button {
-        font-size: 8px; /* Tamaño reducido para inputs */
-        padding: 5px;
-    }
-    .footer-social .social-icons img {
-        width: 20px; /* Iconos aún más pequeños */
-        margin: 2px;
-    }
-    .footer-container .box h3 {
-        font-size: 10px;
-    }
-    .footer-container .box p, .footer-container .box ul {
-        font-size: 9px;
-    }
-    .section-two h3 {
-        font-size: 2rem; /* Reducir encabezados */
-    }
-    .section-two .product-about h3 {
-        font-size: 1rem; /* Ajustar títulos dentro de tarjetas */
-    }
-    .section-two .product-about .about {
-        font-size: 0.8rem; /* Reducir descripciones */
     }
 }

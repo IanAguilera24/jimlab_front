@@ -95,3 +95,17 @@ function moveToLeft() {
 document.getElementById('instrumentos').addEventListener('click', function() {
     window.location.href = 'https://ejemplojimlabblog.blogspot.com/';
 });
+
+// Carruseles logo
+document.querySelectorAll('.carousel-section-seven').forEach(carousel => {
+    const containerWidth = carousel.parentElement.offsetWidth; // Ancho del contenedor
+    const logoWidth = carousel.querySelector('img').offsetWidth + 20; // Ancho del logo + gap
+    const logoCount = carousel.querySelectorAll('img').length; // Cantidad de logos originales
+
+    let logosToClone = Math.ceil(containerWidth / (logoWidth * logoCount)); // Calcula cuántas veces duplicar
+    for (let i = 0; i < logosToClone; i++) {
+        carousel.innerHTML += carousel.innerHTML; // Duplica logos
+    }
+});
+
+
