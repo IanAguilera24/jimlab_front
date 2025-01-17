@@ -13,18 +13,21 @@ window.addEventListener("scroll", function(){
     }
 });
 
-//funcionamiento del menu responsivo
+// Funcionamiento del menú responsivo
 var menu = document.querySelector('.menu');
 var menuBtn = document.querySelector('.menu-btn');
 var closeBtn = document.querySelector('.close-btn');
+var header = document.querySelector("header");
 
 menuBtn.addEventListener("click", () => {
     menu.classList.add('active');
-})
+    header.classList.add('menu-active'); 
+});
 
 closeBtn.addEventListener("click", () => {
     menu.classList.remove('active');
-})
+    header.classList.remove('menu-active');
+});
 
 // Selección de todas las preguntas del FAQ
 document.querySelectorAll('.faq-question').forEach((button) => {
@@ -108,4 +111,21 @@ document.querySelectorAll('.carousel-section-seven').forEach(carousel => {
     }
 });
 
+// Selecciona el botón "Volver arriba"
+const backToTop = document.querySelector('.back-to-top');
 
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) { 
+        backToTop.style.display = 'flex';
+    } else {
+        backToTop.style.display = 'none';
+    }
+});
+
+backToTop.addEventListener('click', (e) => {
+    e.preventDefault(); 
+    window.scrollTo({
+        top: 0, 
+        behavior: 'smooth'
+    });
+});

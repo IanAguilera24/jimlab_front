@@ -18,7 +18,7 @@ page format
 
 html{
     overflow-x: hidden;
-    font-size: calc(10px + 0.3vw);
+    font-size: clamp(10px, calc(8px + 0.2vw), 16px);
 }
 
 body{
@@ -138,6 +138,15 @@ header .btn{
     font-size: 25px;
     cursor: pointer;
     display: none;
+}
+
+header.menu-active .menu a:hover {
+    background: #202020;  
+    transform: scale(1.15);
+    color: #fff;
+    text-shadow: 
+        0 0 1px #fff, 
+        0 0 1px #fff;
 }
 
 /* 
@@ -992,6 +1001,7 @@ Section eight
     display: grid;
     grid-template-columns: 1fr 1fr; 
     grid-template-rows: auto auto;
+    max-width: 1750px;
     gap: 2rem;
     align-items: stretch;
 }
@@ -1131,7 +1141,38 @@ iframe {
 }
 
 /*
-Contenido del Footer
+up arrow
+*/
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px; 
+    right: 20px; 
+    width: 40px; 
+    height: 40px;
+    z-index: 999;
+    display: none; 
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.back-to-top img {
+    width: 40px; 
+    height: auto;
+    filter: drop-shadow(0 0 1px rgba(0, 0, 0, 1.0))
+            drop-shadow(0 0 1px rgba(0, 0, 0, 0.5));
+}
+
+.back-to-top img:hover {
+    transition: transform 0.6s ease-in-out;
+    transform: scale(1.2) rotate(360deg); 
+}
+
+/*
+Footer content
 */
 
 .footer-main {
@@ -1285,18 +1326,47 @@ Contenido del Footer
 Modificacion en funcion del dispositivo
 */
 
-@media (min-width: 1920px) and (max-height: 1080px) {
-    html {
-        font-size: 10px; 
-    }
-}
-
 @media (max-width: 1500px) {
-    .section-main {
-        height: 65vh;
+    header .brand img{
+        height: 45px;
     }
-    .section-six .row-container {
-        margin-top: 2%;
+    header .menu a {
+        font-size: 1em;
+    }
+    .section-two h3 {
+        font-size: 2.5rem;
+    }
+    .section-four .container-mis-vis-val .product-container-mis-vis-val .product-mis-vis-val .about {
+        font-size: 1.1rem;
+    }
+    .section-two .container-about .product-container-about .product-about .about{
+        font-size: 1.1rem;
+    }
+    .section-two .container-about{
+        max-width: 900px;
+    }
+    .section-four h3{
+        font-size: 2.5rem;
+    }
+    .section-four .container-mis-vis-val{
+        max-width: 900px;
+    }
+    .section-six .row-container .container-six {
+        max-width: 900PX;
+    }
+    .carousel-section-seven img {
+        width: 170px; 
+    }
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-102%);
+        }
+    }
+    .contact-container {
+        max-width: 1160px;
     }
 }
 
@@ -1352,12 +1422,6 @@ Modificacion en funcion del dispositivo
     .section-six .row-container .container-six {
         width: 100%;
     }
-    .section-six .row-container .container-six .product-container-six .product-six img {
-        height: 6rem;
-    }
-    .section-six .row-container .container-six .product-container-six .product-six .normativa {
-        height: 5rem;
-    }
 }
 
 @media (max-width: 991px) {
@@ -1398,12 +1462,6 @@ Modificacion en funcion del dispositivo
         max-width: calc(45% - 1rem);
         flex-direction: column;
     }
-    .section-six .row-container .container-six .product-container-six .product-six img {
-        height: 5rem;
-    }
-    .section-six .row-container .container-six .product-container-six .product-six .normativa {
-        height: 5rem;
-    }
     .section-six .row-container .container-six .product-container-six .product-six h3 {
         font-size: 1.3rem;
     }
@@ -1413,6 +1471,7 @@ Modificacion en funcion del dispositivo
     .contact-container {
         flex-direction: column;
         gap: 2rem;
+        max-width: 445px;
     }
     .footer-container {
         grid-template-columns: repeat(2, 1fr); 
@@ -1432,7 +1491,7 @@ Modificacion en funcion del dispositivo
 
 @media (min-width: 300px) and (max-width: 768px) {
     html {
-        font-size: calc(8px + 0.3vw); 
+        font-size: calc(8px + 0.2vw);
     }
 }
 
@@ -1443,15 +1502,8 @@ Modificacion en funcion del dispositivo
 }
 
 @media (max-width: 768px) {
-    header {
-        padding: 15px 40px; 
-    }
-    header .brand {
-        font-size: clamp(8px, 1.5vw, 14px);
-    }
     header .menu a {
-        font-size: 12px; 
-        margin: 0 15px; 
+        font-size: 1.8rem; 
     }
     .section-main{
         height: 40vh;
@@ -1511,10 +1563,6 @@ Modificacion en funcion del dispositivo
         padding: 3%; 
         font-size: 1.5rem; 
     }
-    .section-six .product-container-six .product-six img {
-        height: 12rem; 
-        max-width: 100%; 
-    }
     .section-six .product-container-six .product-six h3 {
         font-size: 2rem; 
     }
@@ -1522,12 +1570,6 @@ Modificacion en funcion del dispositivo
         font-size: 1.6rem; 
         padding-top: 2%; 
     }    
-    .section-six .row-container .container-six .product-container-six .product-six img {
-        height: 4rem;
-    }
-    .section-six .row-container .container-six .product-container-six .product-six .normativa {
-        height: 4rem;
-    }
     .contact-container {
         grid-template-columns: 1fr; 
         grid-template-rows: auto auto auto; 
@@ -1594,12 +1636,6 @@ Modificacion en funcion del dispositivo
         flex: 1 1 calc(100% - 1rem);
         font-size: 0.9rem; 
         padding: 5%; 
-    }
-    .section-six .row-container .container-six .product-container-six .product-six img {
-        height: 2rem;
-    }
-    .section-six .row-container .container-six .product-container-six .product-six .normativa {
-        height: 2rem;
     }
     .footer-container {
         grid-gap: 10px;
