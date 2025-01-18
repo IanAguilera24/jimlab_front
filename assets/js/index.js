@@ -1,16 +1,9 @@
 //cambio de logos Y color por desplazamiento del navbar
 window.addEventListener("scroll", function(){
     var header = document.querySelector("header");
-    var logoJimlab = document.querySelector(".jimlab");
     header.classList.toggle('down',window.scrollY > 0);
     header.classList.toggle('scroll', window.scrollY > 0);
 
-    // Cambia el contorno de la imagen Jimlab según el scroll
-    if (window.scrollY > 0) {
-        logoJimlab.classList.add('highlight'); // Agrega contorno
-    } else {
-        logoJimlab.classList.remove('highlight'); // Quita contorno
-    }
 });
 
 // Funcionamiento del menú responsivo

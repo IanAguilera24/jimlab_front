@@ -2,13 +2,13 @@
 page format
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Kuro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Exo:ital,wght@0,100..900;1,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:wght@200;300;400;600&display=swap');
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Kuro', sans-serif;
+    font-family: 'Exo';
     outline: none; 
     border: none;
     text-decoration: none;
@@ -25,7 +25,28 @@ body{
     min-height: 100vh;
     justify-content: center;
     align-items: center;
-    background-color: rgba(141, 198, 64, 0.2);
+}
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #444; 
+    color: #fff; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    gap: 10px; 
+    font-size: 12px; 
+    padding: 5px 15px;
+    text-transform: uppercase; 
+    z-index: 1000;
+    text-shadow: 
+        0 0 1px #000, 
+        0 0 1px #000, 
+        0 0 1px #000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 /*
@@ -34,20 +55,20 @@ header content
 
 header{
     z-index: 999;
-    position: fixed;
-    top:  0;
+    background: rgba(141, 198, 64, 1.0);
+    position: sticky;
+    top: 22px;
     left: 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 80px;
+    padding: 6px 8px;
     transition: 0.6s;
 }
 
 header.down{
-    background: rgba(141, 198, 64, 0.85);
-    padding: 15px 80px;
+    background: rgba(141, 198, 64, 1.0);
 }
 
 header .brand{
@@ -59,17 +80,11 @@ header .brand{
 }
 
 header .brand img{
-    height: 60px;
+    height: 40px;
 }
 
 .jimlab {
     transition: filter 0.3s ease; 
-    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 1.0))
-            drop-shadow(0 0 1px rgba(255, 255, 255, 1.0))
-            drop-shadow(0 0 1px rgba(255, 255, 255, 1.0));
-}
-
-.jimlab.highlight {
     filter: drop-shadow(0 0 1px rgba(0, 0, 0, 1.0))
             drop-shadow(0 0 1px rgba(0, 0, 0, 0.5));
 }
@@ -85,7 +100,6 @@ header .menu ul{
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
 header .menu ul li{
@@ -103,19 +117,18 @@ header .menu a {
         0 0 4px #000, 
         0 0 4px #000;
     margin: 0 30px;
-    padding: 7px 12px;
+    padding: 5px 8px;
     border-radius: 20px;
     transition: transform 0.3s ease;
 }
 
 header .menu a:hover {
-    color: #000;
-    background: #8DC640;
+    color: #fff; 
+    background: #202020;
     transform: scale(1.15); 
     text-shadow: 
-        0 0 1px #fff, 
-        0 0 1px #fff,
-        0 0 1px #fff;
+        0 0 1px #000, 
+        0 0 1px #000;
 }
 
 header.scroll .menu a {
@@ -147,6 +160,41 @@ header.menu-active .menu a:hover {
     text-shadow: 
         0 0 1px #fff, 
         0 0 1px #fff;
+}
+
+.header-social-icons {
+    display: flex;
+    gap: 10px;
+    justify-content: center; 
+    margin-top: 10px;
+}
+
+.header-social-icons img {
+    width: 30px;
+    height: 30px; 
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+    transition: transform 0.3s ease-in-out;
+}
+
+.header-social-icons img:hover {
+    transform: scale(1.2); 
+}
+
+header.menu-active .header-social-icons {
+    display: none;
+}
+
+/* Mostrar iconos dentro del menú cuando está activo */
+.menu-social-icons {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+header.menu-active .menu-social-icons {
+    display: flex;
 }
 
 /* 
@@ -283,12 +331,11 @@ Section two
 .section-two{
     text-align: center;
     position: relative; 
-    background: url('/assets/resources/img/fondo-sectionfour.jpg') no-repeat center center;
+    background: linear-gradient(135deg, rgba(202, 200, 51, 0.05), rgba(141, 198, 64, 0.05));
     background-size: cover; 
     background-attachment: fixed; 
     z-index: 1;
     overflow: hidden; 
-    padding-bottom: 7%;
 }
 
 .section-two::before {
@@ -303,26 +350,22 @@ Section two
 }
 
 .section-two h3{
-    padding-top: 5%;
+    padding-top: 2%;
     font-size: 3.5rem;
-    color: #fff;
     margin-bottom: 3rem;
     text-transform: uppercase;
     text-align: center;
-    text-shadow: 
-        0 0 4px #000, 
-        0 0 4px #000, 
-        0 0 4px #000;
 }
 
 .section-two h3 strong{
     text-transform: uppercase;
+    color: #444;
 }
 
 .section-two .container-about{
     max-width: 1600px;
     margin: 0 auto;
-    padding: 3rem 2rem;
+    padding-bottom: 2rem;
 }
 
 .section-two .container-about .product-container-about{
@@ -330,7 +373,7 @@ Section two
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     gap: 2rem;
 }
-
+/*
 .section-two .container-about .product-container-about:hover > :not(:hover) {
     filter: blur(2px);
     opacity: 0.7;
@@ -341,28 +384,28 @@ Section two
     filter: none; 
     opacity: 1; 
 }
-
+*/
 .section-two .container-about .product-container-about .product-about{
     text-align: center;
     padding-left: 10%;
     padding-right: 10%;
     background:rgba(255, 255, 255, 0.9);
-    box-shadow: 0 0 5px rgba(0, 0, 0, 1.0), 0 0 15px rgba(0, 0, 0, 0.5);
-    outline: 0.1rem solid #000;
+    box-shadow: 0 0 5px rgba(202, 200, 51, 1.0), 0 0 5px rgba(202, 200, 51, 0.5);
+    outline: 0.1rem solid #CAC833;
     outline-offset: -1.5rem;
     border-radius: 20px;
 }
 
 .section-two .container-about .product-container-about .product-about:hover{
-    outline: 0.3rem solid #000;
+    outline: 0.3rem solid #CAC833;
     outline-offset: 0;
     transform: scale(1.05);
 }
 
 .section-two .container-about .product-container-about .product-about img{
-    height: 10rem;
-    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 1.0))
-            drop-shadow(0 0 3px rgba(0, 0, 0, 0.5));
+    height: 6rem;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 1.0))
+            drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
 }
 
 .section-two .container-about .product-container-about .product-about:hover img{
@@ -370,27 +413,22 @@ Section two
 }
 
 .section-two .container-about .product-container-about .product-about h3{
-    padding-top: 10%;
+    padding-top: 5%;
     font-size: 1.5rem;
-    color: #fff;
-    text-shadow: 
-        0 0 4px #000, 
-        0 0 4px #000, 
-        0 0 4px #000;
+    color: #444;
 }
 
 .section-two .container-about .product-container-about .product-about:hover h3{
     color: #8DC640;
     text-shadow: 
-        0 0 4px #000, 
-        0 0 4px #000;
+        0 0 2px #000, 
+        0 0 2px #000;
 }
 
 .section-two .container-about .product-container-about .product-about .about{
     font-size: 1.3rem;
-    padding-top: 10%;
-    color: #000;
-    text-transform: uppercase;
+    padding-top: 5%;
+    color: #444;
 }
 
 /*
@@ -399,10 +437,9 @@ sección-three
 
 .section-three {
     text-align: center;
-    padding: 5% 5%;
-    padding-left: 10%;
-    padding-right: 10%;
-    background: rgba(0, 0, 0, 0.02);
+    padding: 2%;
+    padding-left: 15%;
+    padding-right: 15%;
 }
 
 .section-three h3 {
@@ -417,8 +454,6 @@ sección-three
     font-size: 1.8rem;
     line-height: 1.6;
     margin-bottom: 2rem;
-    text-transform: uppercase;
-    padding: 3%;
     color: #444;
 }
 
@@ -447,7 +482,7 @@ Section-four
     padding-bottom: 5%;
     text-align: center;
     position: relative; 
-    background: url('/assets/resources/img/fondo-sectionfour.jpg') no-repeat center center;
+    background: linear-gradient(135deg, rgba(202, 200, 51, 0.05), rgba(141, 198, 64, 0.05));
     background-size: cover; 
     background-attachment: fixed; 
     z-index: 1;
@@ -466,20 +501,16 @@ Section-four
 }
 
 .section-four h3{
-    padding-top: 5%;
+    padding-top: 3%;
     padding-bottom: 3%;
     font-size: 3.5rem;
-    color: #fff;
     text-transform: uppercase;
     text-align: center;
-    text-shadow: 
-        0 0 4px #000, 
-        0 0 4px #000, 
-        0 0 4px #000;
 }
 
 .section-four h3 strong{
     text-transform: uppercase;
+    color: #444;
 }
 
 .section-four .container-mis-vis-val{
@@ -495,7 +526,7 @@ Section-four
         "vision valores"; 
     gap: 2rem; 
 }
-
+/*
 .section-four .container-mis-vis-val .product-container-mis-vis-val:hover > :not(:hover) {
     filter: blur(2px);
     opacity: 0.7;
@@ -506,12 +537,12 @@ Section-four
     filter: none; 
     opacity: 1; 
 }
-
+*/
 .section-four .container-mis-vis-val .product-container-mis-vis-val .product-mis-vis-val {
     text-align: center;
     background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 0 5px rgba(0, 0, 0, 1.0), 0 0 15px rgba(0, 0, 0, 0.5);
-    outline: 0.1rem solid #000;
+    box-shadow: 0 0 5px rgba(202, 200, 51, 1.0), 0 0 5px rgba(202, 200, 51, 0.5);
+    outline: 0.1rem solid #CAC833;
     outline-offset: -1.5rem;
     border-radius: 20px;
     padding-bottom: 3rem;
@@ -532,7 +563,7 @@ Section-four
 }
 
 .section-four .container-mis-vis-val .product-container-mis-vis-val .product-mis-vis-val:hover{
-    outline: 0.3rem solid #000;
+    outline: 0.3rem solid #CAC833;
     outline-offset: 0;
     transform: scale(1.05);
 }
@@ -549,21 +580,16 @@ Section-four
 
 .section-four .container-mis-vis-val .product-container-mis-vis-val .product-mis-vis-val h3 {
     font-size: 1.5rem; 
-    padding-top: 1%;
+    padding-top: 4%;
     padding-bottom: 1%;
-    color: #fff;
-    text-shadow: 
-        0 0 4px #000, 
-        0 0 4px #000, 
-        0 0 4px #000;
+    color: #444;
 }
 
 .section-four .container-mis-vis-val .product-container-mis-vis-val .product-mis-vis-val:hover h3{
     color: #8DC640;
     text-shadow: 
-        0 0 4px #000, 
-        0 0 4px #000, 
-        0 0 4px #000;
+        0 0 2px #000, 
+        0 0 2px #000;
 }
 
 .section-four .container-mis-vis-val .product-container-mis-vis-val .product-mis-vis-val .about {
@@ -572,7 +598,6 @@ Section-four
     padding-left: 10%;
     padding-right: 10%;
     color: #444;
-    text-transform: uppercase;
     line-height: 1.6;
 }
 
@@ -714,7 +739,7 @@ Section six
 .section-six{
     text-align: center;
     position: relative; 
-    background: url('/assets/resources/img/fondo-sectionfour.jpg') no-repeat center center;
+    background: linear-gradient(135deg, rgba(202, 200, 51, 0.05), rgba(141, 198, 64, 0.05));
     background-size: cover; 
     background-attachment: fixed; 
     z-index: 1;
@@ -749,7 +774,7 @@ Section six
     width: 22%; 
     height: auto; 
     background-color: #000;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 1.0);
+    box-shadow: 0 0 5px rgba(202, 200, 51, 1.0), 0 0 5px rgba(202, 200, 51, 0.5);
     border-radius: 15px;
     overflow: hidden;
 }
@@ -832,7 +857,7 @@ Section six
     justify-content: space-around;
     flex-wrap: wrap; 
 }
-
+/*
 .section-six .product-container-six:hover > :not(:hover) {
     filter: blur(2px);
     opacity: 0.7;
@@ -843,14 +868,14 @@ Section six
     filter: none; 
     opacity: 1; 
 }
-
+*/
 .section-six .row-container .container-six .product-container-six .product-six{
     text-align: center;
     padding: 2%;
     padding-bottom: 3%;
     background:rgba(255, 255, 255, 0.9);
-    box-shadow: 0 0 5px rgba(0, 0, 0, 1.0), 0 0 15px rgba(0, 0, 0, 0.5);
-    outline: 0.1rem solid #000;
+    box-shadow: 0 0 5px rgba(202, 200, 51, 1.0), 0 0 5px rgba(202, 200, 51, 0.5);
+    outline: 0.1rem solid #CAC833;
     outline-offset: -1.5rem;
     border-radius: 20px;
     flex: 1 1 calc(30% - 2rem); 
@@ -858,7 +883,7 @@ Section six
 }
 
 .section-six .row-container .container-six .product-container-six .product-six:hover{
-    outline: 0.3rem solid #000;
+    outline: 0.3rem solid #CAC833;
     outline-offset: 0;
     transform: scale(1.03);
 }
@@ -883,8 +908,6 @@ Section six
     outline: 0.3rem solid #8DC640;
     outline-offset: 0;
     transform: scale(1.03);
-    filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.7))
-            drop-shadow(0 0 4px rgba(0, 0, 0, 0.7));
 }
 
 .section-six .row-container .container-six .product-container-six .product-six:hover img{
@@ -895,25 +918,20 @@ Section six
     padding-top: 10%;
     text-transform: uppercase;
     font-size: 1.5rem;
-    color: #fff;
-    text-shadow: 
-        0 0 4px #000, 
-        0 0 4px #000, 
-        0 0 4px #000;
+    color: #444;
 }
 
 .section-six .row-container .container-six .product-container-six .product-six:hover h3{
     color: #8DC640;
     text-shadow: 
-        0 0 4px #000, 
-        0 0 4px #000;
+        0 0 2px #000, 
+        0 0 2px #000;
 }
 
 .section-six .row-container .container-six .product-container-six .product-six .about{
     font-size: 1.3rem;
     padding-top: 10%;
     color: #000;
-    text-transform: uppercase;
 }
 
 /*
@@ -922,7 +940,6 @@ Secion seven
 
 .section-seven {
     background: rgba(0, 0, 0, 0.02);
-    padding: 10px;
     overflow: hidden; 
     text-align: center;
 }
@@ -976,7 +993,7 @@ Section eight
 .section-eight {
     text-align: justify;
     position: relative; 
-    background: url('/assets/resources/img/fondo-sectionfour.jpg') no-repeat center center;
+    background: linear-gradient(135deg, rgba(202, 200, 51, 0.05), rgba(141, 198, 64, 0.05));
     background-size: cover; 
     background-attachment: fixed; 
     z-index: 1;
@@ -1012,7 +1029,7 @@ Section eight
     grid-row: 1 / 2;
     padding: 2%;
     border-radius: 20px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 5px rgba(202, 200, 51, 1.0), 0 0 5px rgba(202, 200, 51, 0.5);
 }
 
 .contact-eight h2 {
@@ -1022,12 +1039,7 @@ Section eight
     text-transform: uppercase;
 }
 
-.contact-eight strong {
-    text-transform: uppercase;
-}
-
 .contact-eight p {
-    text-transform: uppercase;
     font-size: 1.2rem;
     color: #444;
     padding-bottom: 1%;
@@ -1037,7 +1049,6 @@ Section eight
     color: #8DC640;
     text-decoration: none;
     font-weight: bold;
-    text-transform: uppercase;
     text-shadow: 
         0 0 2px #000, 
         0 0 2px #000, 
@@ -1074,7 +1085,7 @@ iframe {
     width: 100%; 
     height: 500px; 
     border-radius: 20px; 
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 5px rgba(202, 200, 51, 1.0), 0 0 5px rgba(202, 200, 51, 0.5);
 }
 
 .contact-form-eight {
@@ -1086,7 +1097,7 @@ iframe {
     padding: 2%;
     background: rgba(255, 255, 255, 1.0);
     border-radius: 20px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 5px rgba(202, 200, 51, 1.0), 0 0 5px rgba(202, 200, 51, 0.5);
 }
 
 .contact-form-eight label {
@@ -1327,11 +1338,14 @@ Modificacion en funcion del dispositivo
 */
 
 @media (max-width: 1500px) {
+    header {
+        padding: 6px 8px;
+    }
     header .brand img{
-        height: 45px;
+        height: 35px;
     }
     header .menu a {
-        font-size: 1em;
+        font-size: 0.9em;
     }
     .section-two h3 {
         font-size: 2.5rem;
@@ -1376,7 +1390,7 @@ Modificacion en funcion del dispositivo
         min-height: 1280px;
     }
     header, header.down {
-        padding: 20px 40px;
+        padding: 6px 8px;
     }
     header .btn {
         display: block;
