@@ -106,12 +106,15 @@ document.querySelectorAll('.carousel-section-seven').forEach(carousel => {
 
 // Selecciona el botón "Volver arriba"
 const backToTop = document.querySelector('.back-to-top');
+const wpbtn = document.querySelector('.whatsapp-contact');
 
 window.addEventListener('scroll', () => {
     if (window.scrollY > 200) { 
         backToTop.style.display = 'flex';
+        wpbtn.style.display = 'flex'
     } else {
         backToTop.style.display = 'none';
+        wpbtn.style.display = 'none'
     }
 });
 

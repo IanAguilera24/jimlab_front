@@ -49,6 +49,10 @@ body{
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+.top-bar span {
+    text-transform: lowercase;
+}
+
 /*
 header content
 */
@@ -85,8 +89,7 @@ header .brand img{
 
 .jimlab {
     transition: filter 0.3s ease; 
-    filter: drop-shadow(0 0 1px rgba(0, 0, 0, 1.0))
-            drop-shadow(0 0 1px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0 0 2px rgb(255, 255, 255, 1));
 }
 
 header .menu{
@@ -331,7 +334,7 @@ Section two
 .section-two{
     text-align: center;
     position: relative; 
-    background: linear-gradient(135deg, rgba(202, 200, 51, 0.05), rgba(141, 198, 64, 0.05));
+    background: linear-gradient(135deg, rgba(202, 200, 51, 0.1), rgba(141, 198, 64, 0.1));
     background-size: cover; 
     background-attachment: fixed; 
     z-index: 1;
@@ -482,7 +485,7 @@ Section-four
     padding-bottom: 5%;
     text-align: center;
     position: relative; 
-    background: linear-gradient(135deg, rgba(202, 200, 51, 0.05), rgba(141, 198, 64, 0.05));
+    background: linear-gradient(135deg, rgba(202, 200, 51, 0.1), rgba(141, 198, 64, 0.1));
     background-size: cover; 
     background-attachment: fixed; 
     z-index: 1;
@@ -739,7 +742,7 @@ Section six
 .section-six{
     text-align: center;
     position: relative; 
-    background: linear-gradient(135deg, rgba(202, 200, 51, 0.05), rgba(141, 198, 64, 0.05));
+    background: linear-gradient(135deg, rgba(202, 200, 51, 0.1), rgba(141, 198, 64, 0.1));
     background-size: cover; 
     background-attachment: fixed; 
     z-index: 1;
@@ -964,9 +967,23 @@ Secion seven
     animation: scroll 10s linear infinite; 
     white-space: nowrap;
 }
-
+/*
 .carousel-section-seven.reverse {
     animation-direction: reverse; 
+}
+*/
+.carousel-wrapper-seven img {
+    width: 200px; 
+    height: auto;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+    background: transparent;
+}
+
+.carousel-static {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 .carousel-section-seven img {
@@ -993,7 +1010,7 @@ Section eight
 .section-eight {
     text-align: justify;
     position: relative; 
-    background: linear-gradient(135deg, rgba(202, 200, 51, 0.05), rgba(141, 198, 64, 0.05));
+    background: linear-gradient(135deg, rgba(202, 200, 51, 0.1), rgba(141, 198, 64, 0.1));
     background-size: cover; 
     background-attachment: fixed; 
     z-index: 1;
@@ -1180,6 +1197,37 @@ up arrow
 .back-to-top img:hover {
     transition: transform 0.6s ease-in-out;
     transform: scale(1.2) rotate(360deg); 
+}
+
+/*
+wp button
+*/
+
+.whatsapp-contact {
+    position: fixed;
+    bottom: 20px; 
+    left: 20px; 
+    width: 40px; 
+    height: 40px;
+    z-index: 999;
+    display: none; 
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-contact img {
+    width: 40px; 
+    height: auto;
+    filter: drop-shadow(0 0 1px rgba(0, 0, 0, 1.0))
+            drop-shadow(0 0 1px rgba(0, 0, 0, 0.5));
+}
+
+.whatsapp-contact img:hover {
+    transition: transform 0.6s ease-in-out;
+    transform: scale(1.2); 
 }
 
 /*
@@ -1371,12 +1419,15 @@ Modificacion en funcion del dispositivo
     .carousel-section-seven img {
         width: 170px; 
     }
+    .carousel-wrapper-seven img {
+        width: 140px;
+    }
     @keyframes scroll {
         0% {
             transform: translateX(0);
         }
         100% {
-            transform: translateX(-102%);
+            transform: translateX(-150%);
         }
     }
     .contact-container {
@@ -1485,7 +1536,7 @@ Modificacion en funcion del dispositivo
     .contact-container {
         flex-direction: column;
         gap: 2rem;
-        max-width: 445px;
+        max-width: 870px;
     }
     .footer-container {
         grid-template-columns: repeat(2, 1fr); 
